@@ -1,32 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%>
 
-<%@ page import="java.net.*" %>
-
 <!DOCTYPE html>
 <html>
 <head>
 
-<title>Medical Health Portal</title>
+<title>Bus Booking Portal</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
 
 body{
-background:#f4f8fb;
+background:#f5f5f5;
+font-family:Arial;
 }
 
 header{
-background:#28a745;
+background:#d84e55;
 color:white;
-padding:20px;
+padding:25px;
 text-align:center;
 }
 
+.search-box{
+background:white;
+padding:30px;
+margin-top:-30px;
+border-radius:10px;
+box-shadow:0px 4px 10px rgba(0,0,0,0.1);
+}
+
 .card{
-margin-top:20px;
-box-shadow:0px 4px 8px rgba(0,0,0,0.1);
+margin-top:25px;
+box-shadow:0px 4px 10px rgba(0,0,0,0.1);
+border-radius:10px;
+}
+
+.btn-search{
+background:#d84e55;
+color:white;
+}
+
+.services{
+text-align:center;
 }
 
 </style>
@@ -37,43 +54,48 @@ box-shadow:0px 4px 8px rgba(0,0,0,0.1);
 
 <header>
 
-<h1>🏥 Welcome to Medical Health Portal</h1>
-<h4>Hospital Management | Patient Services</h4>
+<h1>🚌 Bus Booking Portal</h1>
+<h4>Search • Compare • Book Bus Tickets</h4>
 
 </header>
 
 <div class="container">
 
-<div class="card p-4">
+<div class="search-box">
 
-<h3>Server Information</h3>
+<h3>Search Buses</h3>
 
-<%
+<form class="row g-3">
 
-InetAddress inetAddress = InetAddress.getLocalHost();
+<div class="col-md-4">
+<input type="text" class="form-control" placeholder="From City">
+</div>
 
-out.println("Server Name : " + inetAddress.getHostName() + "<br>");
-out.println("Server IP : " + inetAddress.getHostAddress());
+<div class="col-md-4">
+<input type="text" class="form-control" placeholder="To City">
+</div>
 
-%>
+<div class="col-md-3">
+<input type="date" class="form-control">
+</div>
+
+<div class="col-md-1">
+<button class="btn btn-search w-100">Search</button>
+</div>
+
+</form>
 
 </div>
 
-<div class="card p-4">
 
-<h3>Client Information</h3>
+<div class="card p-4 services">
 
-<p>Client IP : <%= request.getRemoteAddr() %></p>
-<p>Client Host : <%= request.getRemoteHost() %></p>
+<h3>Bus Services</h3>
 
-</div>
+<p>Find the best buses for your journey.</p>
 
-<div class="card p-4 text-center">
-
-<h3>Hospital Services</h3>
-
-<a href="services/patient/getPatientDetails" class="btn btn-success">
-Get Patient Details
+<a href="services/bus/getBusDetails" class="btn btn-danger">
+View Available Buses
 </a>
 
 </div>
