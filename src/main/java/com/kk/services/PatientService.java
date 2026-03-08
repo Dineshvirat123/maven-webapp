@@ -12,23 +12,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping("/patient")
-public class PatientService {
+@RequestMapping("/bus")
+public class BusService {
 
-@RequestMapping(value = "/getPatientDetails", method = RequestMethod.GET)
+@RequestMapping(value = "/getBusDetails", method = RequestMethod.GET)
 @ResponseBody
-String getPatientDetails(HttpServletRequest request,
+String getBusDetails(HttpServletRequest request,
 HttpServletResponse response,
 HttpSession httpSession) throws JSONException {
 
 JSONObject js = new JSONObject();
 
-js.put("Patient Name","Ravi Kumar");
-js.put("Age","32");
-js.put("Blood Group","O+");
-js.put("Doctor","Dr. Sharma");
-js.put("Department","Cardiology");
-js.put("Hospital","City Care Hospital");
+js.put("Bus Name","Orange Travels");
+js.put("Bus Type","AC Sleeper");
+js.put("From","Hyderabad");
+js.put("To","Bangalore");
+js.put("Departure Time","10:30 PM");
+js.put("Arrival Time","6:00 AM");
+js.put("Available Seats","12");
+js.put("Ticket Price","₹1200");
 
 return js.toString();
 
